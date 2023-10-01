@@ -1,0 +1,24 @@
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 0 */1 * * *"
+    },
+    {
+      "name": "InputTokenBlob",
+      "type": "blob",
+      "path": "tokens/token.json",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "name": "OutputTokenBlob",
+      "type": "blob",
+      "path": "tokens/token.json",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    }
+  ]
+}
