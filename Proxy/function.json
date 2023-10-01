@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "proxy/{*path}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "name": "InputTokenBlob",
+      "type": "blob",
+      "path": "tokens/token.json",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    }
+  ]
+}
