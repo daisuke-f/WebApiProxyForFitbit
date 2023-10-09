@@ -15,8 +15,7 @@ if ($Timer.IsPastDue) {
 Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
 
 if (-not $InputTokenBlob -or -not ($InputTokenBlob.refresh_token) -or -not ($InputTokenBlob.client_id)) {
-    Write-Error "Blob or blob properties are missing! Initialization is required!"
-    return
+    throw [Exception]::new("Blob or blob properties are missing! Initialization is required!")
 }
 
 Write-Host "Refreshing token..."
@@ -35,5 +34,5 @@ if($resp) {
 
     Write-Host "Token refreshed!"
 } else {
-    Write-Error "Something went wrong while refreshing the token!"
+    throw [Exception]::new("Something went wrong while refreshing the token!")
 }
